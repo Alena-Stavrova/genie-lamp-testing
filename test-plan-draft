@@ -1,0 +1,74 @@
+Genie Lamp 1.0
+Prepared By: 
+Alena Stavrova
+May 18, 2022
+
+1.0 INTRODUCTION
+The product to be tested is the Genie Lamp. The main function of the lamp is to grant its owner three wishes. 
+
+2.0 OBJECTIVES AND TASKS
+2.1 Objectives
+The objective of testing is identifying and reporting the potential issues in the scope (see par. 4.0 SCOPE). After the testing is done, the third parties will use the information to upgrade the current version into the Genie Lamp 2.0.  
+2.2 Tasks
+The tasks include writing the specification (see Lamp Requirement Specification), testing and problem reporting. 
+
+3.0 DEFINITIONS
+Product – the Genie Lamp in its current version 1.0 which includes the lamp itself and a genie in it.
+User – an individual who finds the lamp, summons the genie and is granted three wishes (see also Activation)
+User Interface (UI) – the outside appearance of the lamp
+Activation – the act of summoning the genie through rubbing the lamp
+Frontend – a part of the product with which a User interacts; includes UI, user input (e.g. activation, wishes, questions) and user flow (e.g. the sequence of wishes) when interacting with the Product
+Backend – a part of the product which a User does not see (‘the data access layer’); includes processing user input (e.g. interpretation or misinterpretation by a genie) and inner architecture (e.g. the insides of the lamp)
+Lamp Requirement Specification (LRS) – a document prepared by the testing team that contains the known requirements for a product (as per the product owner statement). The product owner did not provide any formal documentation.
+
+4.0 SCOPE
+4.1 What will be tested
+The following aspects of the Product will be tested:
+•	Lamp Requirement Specification (LRS)
+•	User Interface (UI)
+•	Frontend
+4.2 What will not be tested
+•	Backend
+•	Inner architecture
+
+5.0 TESTING STRATEGY
+5.1 Lamp Requirement Specification (LRS)
+Methodology: documentation testing
+5.2 User Interface (UI)
+Methodology: manual testing
+5.3 Frontend
+Methodology: manual testing, test scenarios
+
+6.0 HARDWARE REQUIREMENTS
+1 Genie lamp
+
+7.0 ENVIRONMENT REQUIREMENTS
+Testing will take place indoors and outdoors. 
+
+8.0 TEST SCHEDULE 
+Testing will be divided into 3 consecutive parts corresponding to the aspects of the Product to be tested: Lamp Requirement Specification (LRS), User Interface (UI) and Frontend. The milestones will be the completion of each part of testing:
+•	Milestone 1: testing Lamp Requirement Specification (LRS) is completed
+•	Milestone 2: testing User Interface (UI) is completed
+•	Milestone 3: testing Frontend is completed
+[Timeline?]
+
+9.0 PROBLEM REPORTING
+Problem Reporting
+When a defect is found, a Bug Report is to be filled (see Appendix). [Bug Report создадим позже]
+
+10.0 RESOURCES/ROLES & RESPONSIBILITIES
+Staff involved in testing – their roles:
+Alena Stavrova – Documentation testing, Manual testing, Test scenarios
+Hardware requirement (see 6.0 HARDWARE REQUIREMENTS) is to be provided by the client.
+
+11.0 SCHEDULES
+Major Deliverables: 
+•	Test Plan
+•	Test Cases
+•	Test Scenarios
+•	Bug Reports
+
+12.0 APPROVALS
+Name (In Capital Letters) Signature Date:
+1. Alena Stavrova 	/signed/ 	May 18, 2022
+2. The Client		/signed/	May 18, 2022
