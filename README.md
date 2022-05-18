@@ -1,6 +1,6 @@
 # test-plan-project
 
-In this project, I will test documentation and create a plan for a genie lamp 🧞. I got the idea from "testing a pencil".
+In this project, I will test documentation and create a plan for a genie lamp 🧞. I got the idea from your typical "testing a pencil" tasks for novice tester, but I wanted to make it more interesting.
 
 Why testing a genie lamp?
 <ul>* fun!</ul>
