@@ -5,13 +5,13 @@ Obviously, there is nothing like that for a genie lamp and I had to do my resear
 For the purpose of this project, I will accept the following as the valid requirements:
 
 1. The genie lamp looks like an oil lamp but has a genie in it.
-2. When someone rubs the lamp (= Lamp Owner), the genie appears.
+2. When someone rubs the lamp (= Activation), the genie appears.
 3. The genie can grant the Lamp Owner three wishes. 
 4. Restrictions on wishes:
-•	no killing people, including indirectly (e.g. initiating a car crash)
+•	no killing people
 •	no making someone fall in love 
 •	no resurrection 
 •	no wishing for more wishes
-5. The Lamp Owner can set the genie free by using one of his/her wishes for that.
-6. After three wishes have been granted to the Lamp Owner, the genie goes back to the lamp (unless set free).
-7. Any number of people can become Lamp Owners after that.  
+5. The user can set the genie free by using one of his/her wishes for that.
+6. After three wishes have been granted to the user, the genie goes back to the lamp (unless set free).
+7. Any number of people can become users after that.  
