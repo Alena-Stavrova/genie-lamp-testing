@@ -1,4 +1,4 @@
-# test-plan-project
+# genie-lamp-testing
 
 In this project, I will test a genie lamp 🧞. I got the idea from your typical "testing a pencil" tasks for novice tester, but I wanted to make it more interesting. Initially, I wanted to write a test plan, but then I realized that the most interesting part is testing the "documentation". 
 
