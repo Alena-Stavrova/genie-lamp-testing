@@ -1,17 +1,21 @@
-Before doing any testing, a tester should become familiar with the relevant documentation (requirements, specification). 
+Before doing any testing, a tester should become familiar with the software documentation (requirements, specifications). Obviously, there is nothing like that for a genie lamp and I had to do my research. It turned out that the requirements are not that clear and may differ depending on the source of the story.
 
-Obviously, there is nothing like that for a genie lamp and I had to do my research. It turned out, the requirements are not that clear and may differe depeding on the source of the story (e.g. amounts of wishes, owners, restrictions etc.).
-
-For the purpose of this project, I will accept the following as the valid requirements:
+For the purpose of this project, I will accept the following as the requirements:
 
 1. The genie lamp looks like an oil lamp but has a genie in it.
+
 2. When someone rubs the lamp (= Activation), the genie appears.
-3. The genie can grant the Lamp Owner three wishes. 
+
+3. The genie can grant the user three wishes. 
+
 4. Restrictions on wishes:
 •	no killing people
 •	no making someone fall in love 
 •	no resurrection 
 •	no wishing for more wishes
-5. The user can set the genie free by using one of his/her wishes for that.
+
+5. The user can set the genie free by using one of their wishes for that.
+
 6. After three wishes have been granted to the user, the genie goes back to the lamp (unless set free).
-7. Any number of people can become users after that.  
+
+7. Any number of people can become users after p.6.  
