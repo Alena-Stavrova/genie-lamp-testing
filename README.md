@@ -8,3 +8,5 @@ Why test a genie lamp?
 <ul>* rules are relatively simple (or are they? 😈)</ul>
 <ul>* many people are familiar with the story</ul>
 <ul>* great exercise in analytical thinking</ul>
+
+Video presentation is here: https://www.youtube.com/watch?v=vrVkLzkNmOI
