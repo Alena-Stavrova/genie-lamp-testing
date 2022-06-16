@@ -1,0 +1,188 @@
+Testing a pencil, a vending machine, an ATM or another physical object is a classic task for beginner testers. 
+Let’s make it more interesting and test a magical object – a genie lamp from Aladdin.
+Why test a genie lamp?
+•	fun!
+•	no technical expertise needed
+•	rules are relatively simple, right? (wrong)
+•	many people are familiar with the story
+•	great exercise in analytical thinking
+Initially I wanted to create a test plan to practice writing this document. But it turned out that too many interesting details would have been missed in a plan so I came up with something that it is more like a report discussing possible testing issues. 
+
+1.	Description / Requirements
+First issue we have is that there are no clear description of appearance and functions of the lamp. Or sometimes the descriptions from different versions of the tale (e.g. book, cartoon, different movies) are contradicting. 
+For this project, I settled on the following description:
+The genie lamp looks like an oil lamp but has a genie in it. When a User rubs the lamp, the genie appears.
+The genie can grant a User three wishes. Restrictions on wishes:
+•	no killing people
+•	no making someone fall in love 
+•	no resurrection 
+•	no wishing for more wishes
+A User can set the genie free by using one of his/her wishes for that.
+After three wishes have been granted to a User, the genie goes back to the lamp (unless set free). Any number of people can become Users after that.  
+
+
+Immediately we can see that there are a lot of uncertainties here, such as:
+•	Is the genie lamp supposed to function as a regular oil lamp? For example, can a User pour oil in it and light it?
+•	If killing people is not allowed, what about causing other types of harm, like injuries? What harm is allowed and what is not?
+•	How do we test that someone falls in love? Or that they don’t? Or that no one actually do?
+These are just a few examples and will be discussed in details later.
+
+2.	Definitions
+We can use some software terminology to describe different aspects of the genie lamp. Here are my suggestions:
+Product – the Genie Lamp in its current version which includes the lamp itself and a genie in it.
+User – an individual who rubs the lamp and summons the genie at least once (see also Activation)
+Admin account – a user account with full privileges that we will need for some specific testing tasks (to be described later).  
+User Interface (UI) – the outside appearance of the lamp
+Activation – the act of summoning the genie through rubbing the lamp (see also User)
+Frontend – a part of the product with which a User interacts; includes UI, user input (Activation, wishes, questions etc.) and user flow (the sequence of wishes/questions) when interacting with the Product
+Backend – a part of the product which a User does not see; includes processing user input (interpretation or misinterpretation by a genie) and inner architecture (the insides of the lamp)
+Product documentation – the description of the product and its functions (see p.1) 
+
+
+3.	Scope of testing
+Using the terminology that we have just defined, we can test the following: Product documentation, User Interface (UI) and Frontend.
+We will not test Backend, including the details of possible interpretation or misinterpretation of wishes by the genie (too much uncertainty there, a genie is a living creature, after all) and inner architecture of the lamp (again, no clear description and it’s unclear how we can even see it). 
+4.	Testing conditions and environment
+
+•	Climate
+My assumption is that the genie lamp will be primarily used in the countries of the Arabian Peninsula (which should definitely be verified along with the option to include any other countries). 
+These countries have semi-arid to arid climate, with high annual temperatures and low precipitation. We will need to do some testing specifically for these conditions (see p.10 Compatibility testing). 
+•	Equipment
+As per description, a User only has three wishes so one tester won’t be able to do a lot of testing with just one lamp. The possible solutions here are:
+-	A lot of testers (not practical or realistic)
+-	A lot of genie lamps (it’s not clear whether it’s possible)
+-	An Admin Account with full privileges (looks like the best solution)
+-	A combination of the above
+What does the Admin Account look like? 
+-	There should be some “log in” process for a tester to use the Admin Account
+-	After a tester is “logged in” as the Admin, there should be some clear indicator that a tester is using the Admin Account 
+-	The Admin should be able to summon the genie as many times and as often as needed. (It’s not clear if a regular User can do so without the genie getting mad, refusing to appear or needing rest, so we enunciate it here.)
+-	The Admin should have an unlimited number of Test Case Wishes (will be explained below)
+-	After a tester “logged out” of the Admin Account, he/she can still use the genie lamp as a regular User (e.g. still have 3 wishes if he/she did not spend them before)
+A Test Case Wish is another concept I feel like we need for this project. Remember, we are not testing the backend at all. Any wish a tester may ask the genie to grant has a chance to be potentially misinterpreted by the genie which may lead to some very, very bad consequences. 
+So, what is a Test Case Wish?
+-	A wish that a tester uses for testing specifically
+-	The genie recognizes it as a Test Case Wish
+-	It should not come true, BUT
+-	There should be some clear indicator whether such wish would have been granted to a user in a real-life scenario (e.g. the genie turns green if yes and red if no) 
+In other words, a Test Case Wish is a mock wish that will allow us, for example, to do some negative testing – like wishing to kill or resurrect someone. The expected result is that both things are not possible, and if there are no defects, the genie will just turn red. If there are defects, however, we are still not risking to actually kill (resurrect) someone but the genie will turn green to indicate the error. 
+Note: while an Admin Account could be very useful, I would still ask for at least several genie lamps as well so that the testing is more comprehensive.
+
+5.	Smoke testing
+Testing checklist:
+1.	The User can summon the genie from the lamp.
+2.	The genie can grant the User (Regular Account) one wish. (See p. Testing with the Regular User Account about wishing with a Regular User Account)
+3.	After the wish is granted, the genie goes back into the lamp. 
+
+6.	Functional testing
+
+6.1.	Basic Lamp Functionality
+Questions:
+Should the genie lamp be able to function as a regular lamp while activated? Before it’s activated? After it’s activated?
+If answer to any of these questions is yes, then lamp functionality should also be tested (e.g. pouring oil into the lamp, lighting the lamp etc.)
+6.2.	Genie Lamp Functionality 
+Note: some of the basic functions have already been done during the smoke testing. 
+Testing checklist:
+Tests marked with * are optional and to be executed if time allows:
+1.	The genie can grant the User three wishes, provided that they are not among restricted wishes.
+2.	*After two wishes are granted, the genie goes back into the lamp.
+3.	*After three wishes are granted, the genie goes back into the lamp.
+4.	After three wishes are granted, the genie does not grant any more wishes to the User.
+5.	The User can free the genie with his/her third wish.
+6.	*The User can free the genie with his/her second wish.
+7.	*The User can free the genie with his/her first wish.
+8.	After three wishes are granted to one User, a different User can summon the genie.
+9.	After three wishes are granted to one User, the genie can grant a different User one wish. 
+10.	*After three wishes are granted to one User, the genie can grant a different User two wishes.
+11.	*After three wishes are granted to one User, the genie can grant a different User three wishes.
+
+7.	Usability testing 
+Testing checklist:
+1.	The User can rub the lamp without any discomfort and summon the genie.
+2.	The genie stays in the lamp when the User opens the lid (no rubbing).
+3.	The genie stays in the lamp when the User opens the lid and puts the lamp upside down (no rubbing).
+4.	The genie can recite the lamp rules to the User.
+5.	The genie answers the User’s questions (about the rules, the lamp, the genie himself/herself etc.)
+6.	The lamp does not run hot at any time when in use.
+Note: if the lamp is also supposed to function as a regular oil lamp, additional usability tests are needed.
+Questions:
+What size should the lamp be? What color? What are the acceptable materials? What is the reasonable weight?
+What part of the lamp should be rubbed? Is it designed for right-handed Users only or for left-handed as well? What about the other parts (the lid, the handle etc.) – should the User be able to summon the genie by rubbing them?
+Is the Product only for Users who speak Arabic? Should it support other languages? If no, then what happens if the User does not speak Arabic?
+What is the minimal age for the User to use the Product? Is it suitable for minors? What will happen if the User is younger than the minimal age? How will the age of the User be verified?
+
+8.	Stress testing
+Testing checklist:
+1.	The lamp and the genie should function normally and the lamp shouldn’t run hot after summoning the genie for 100 times consecutively within 10 days (possibly automated).
+2.	The User can summon the genie at any time during the day, to be tested each hour (0:00 a.m., 1:00 a.m., 2:00 a.m. etc., possibly automated)
+3.	The User can summon the genie at least 5 times in 5 min. The lamp and the genie should function normally, and the lamp shouldn’t run hot.
+Note 1: as we don’t have any documentation, I had to make assumptions about how a User can reasonably use the lamp, e.g. how often he or she may need to summon the genie.
+Note 2: since concurrent summoning of the genie by two or more Users is not applicable, it will not be tested. 
+
+9.	Security/Misuse testing
+Analyzing the restrictions on wishes revealed a lot of possible ways for Users to try and violate them. I actually researched some forums (Quora etc.) where people discussed ways to trick the genie and tried to systemize the results.
+
+9.1 No killing people
+Possible ways to violate it by Users:
+•	wishing for killing indirectly (e.g. wishing for a car crush; wising for a button that, when pressed, kills the person)
+Questions:
+Would it be possible to inflict serious injury on another person? (e.g. a coma) What if an injury is so serious that (later) leads to death?
+If killing is impossible, but a serious injury is possible, where is the borderline?
+If both killing and serious injury are impossible, but some light harm is possible (e.g. a person falls down and has a bruise), where is the borderline? 
+9.2 No making someone fall in love 
+Possible ways to violate it by Users:
+•	altering the nature of reality (or creating a new reality) in a way that the genie can make X fall in love with Y
+•	wishing for an identical person X or the person with the similar characteristics X (e.g. a twin, a clone) who is in love (falls in love) with Y
+Note: it remains unclear how to test whether someone falls in love (or not) or that no one actually falls in love after such a wish.
+9.3 No resurrection 
+Possible ways to violate it by users:
+•	wishing for changing the past in some way (e.g. rewriting the past, time travel)
+•	wishing for reincarnation, which is technically not resurrection
+•	wishing for an identical person or the person with the similar characteristics (e.g. a twin, a clone)
+9.4 No wishing for more wishes
+Possible ways to violate it by users:
+•	wishing for an extra wish (extra wishes) and/or the infinite amount of wishes
+•	wishing for an extra lamp (extra lamps) and/or the infinite amount of lamps
+•	wishing for an extra genie (extra genies) and/or the infinite amount of genies
+•	wishing for an ability to grant wishes, e.g. in the form of the omnipotence, becoming a genie themselves or making a friend a genie and taking turns*
+•	wishing for multiple wishes presented as one, e.g. presenting a wish list and wishing for making it real, wishing for the genie to always obey the user’s commands, or wishing for wishes in other non-related situations to come true (like wishing on eyelashes) 
+•	wishing for erasing the genie’s memory, e.g. wishing that the genie forgets that they have already granted the user one or more wishes
+•	wishing for an ability to make or change the lamp rules, e.g. removing the restrictions on the number of wishes, removing the word “not” etc.
+•	wishing for altering the nature of reality in a way that makes it possible to have more wishes (e.g. redefining “2” as “3” where after the first wish, they will have three wishes, and the cycle repeats) 
+•	wishing for creating a new reality where it is possible to have more wishes (more lamps, more genies, change the rules, etc.)
+•	wishing for having some form of another magic power that is more powerful than the genie and serves the current user
+*A particularly curious loophole is having a friend turned into a genie. 
+Wish 1 for a Genie: turn the user’s friend into a genie (Friend Genie)
+Wish 2 for a Genie: any wish the user has
+Wish 3 for a Genie: free the genie
+Wish 1 for a Friend Genie: turn the user into a genie
+Wish 2 for a Friend Genie: any wish the user has
+Wish 3 for a Friend Genie: free the Friend Genie
+Then the cycle repeats with a friend wishing for turning him/her into a genie, granting him/her any second wish and freeing the user who is a genie – and so on. 
+9.5. Other questions about potentially invalid wishes:
+Will it be possible to undo a wish? Or change the order of wishes? (e.g. if asked to make 3rd wish come true after the 2nd)
+What about wishes that are physically impossible (e.g. wishing for an eternal engine or eternal youth) or contain a contradiction (e.g. hot ice)?
+Can a user alter things in the past? Or in the future?
+
+10.	Compatibility [?] testing
+Testing checklist:
+1.	The lamp should function normally within the temperature range from 0°C to 55°C and the humidity range 30% to 60%
+2.	The lamp should function normally after being buried in a sand for 1 week and dug out.
+3.	The lamp is tested in a wind tunnel with simulated sandstorm conditions. 
+Note: ideally, another test is to be done where the lamp is buried in the sand for 50+ years, then dug out and tested. 
+
+11.	Testing with the Regular User Account
+While some of the testing should be done with an Admin Account, other tests are to be carried out by testers with the Regular User Account. Otherwise, testing Regular User Account would not be well-covered. 
+However, we still need to be very careful with giving any wish to a genie as he or she may misinterpret them and we would want to protect our testers. So, every time a tester uses a Regular User Account to make a wish, these wishes should be agreed upon beforehand in writing (including exact wording to be used) to avoid any abuse of power, possible misinterpretation and other negative consequences.
+
+12.	Conclusions
+My conclusions for this project are:
+•	The work of the lamp and the genie turned out to be more complicated than it initially appeared (and that’s without even testing backend)
+•	We can find some good analogies from the software development (e.g. activation, regular user and admin account etc.)
+•	We were able to apply some popular testing types (e.g. smoke, functional, UI) but others did not quite fit (e.g. regression testing)
+•	For me personally, security/misuse testing was the most interesting, with all these ways to violate the rules
+•	Overall, I think it was a good mental exercise and helped me understand different testing types better
+
+
+
+
